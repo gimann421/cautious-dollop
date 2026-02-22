@@ -1,0 +1,16 @@
+{
+  "framework": "nextjs",
+  "buildCommand": "npm run build",
+  "installCommand": "npm install",
+  "functions": {
+    "src/app/api/stripe/webhook/route.ts": {
+      "maxDuration": 10
+    },
+    "src/app/api/generate/route.ts": {
+      "maxDuration": 30
+    },
+    "src/app/api/pdf/route.tsx": {
+      "maxDuration": 30
+    }
+  }
+}

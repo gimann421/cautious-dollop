@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap');
+@import "tailwindcss";
+
+:root {
+  --ink: #1a1a1a;
+  --ink-light: #5a5a5a;
+  --ink-faint: #9a9a9a;
+  --cream: #faf8f4;
+  --paper: #f3f0ea;
+  --accent: #2d5a3d;
+  --accent-light: #e8f0ea;
+  --accent-mid: #4a8a5e;
+  --rule: #e0dbd0;
+  --white: #ffffff;
+}
+
+@theme inline {
+  --color-ink: var(--ink);
+  --color-ink-light: var(--ink-light);
+  --color-ink-faint: var(--ink-faint);
+  --color-cream: var(--cream);
+  --color-paper: var(--paper);
+  --color-accent: var(--accent);
+  --color-accent-light: var(--accent-light);
+  --color-accent-mid: var(--accent-mid);
+  --color-rule: var(--rule);
+  --font-display: 'Fraunces', serif;
+  --font-body: 'DM Sans', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Fraunces', serif;
+}
+
+/* Shimmer animation for loading states */
+@keyframes shimmer {
+  0% { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--paper) 25%,
+    var(--rule) 50%,
+    var(--paper) 75%
+  );
+  background-size: 1000px 100%;
+  animation: shimmer 1.5s infinite linear;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--paper);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--rule);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ink-faint);
+}
