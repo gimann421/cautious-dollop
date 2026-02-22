@@ -1,7 +1,24 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
-  /* config options here */
-};
+  // Allow @react-pdf/renderer to be server-side rendered
+  serverExternalPackages: ['@react-pdf/renderer'],
 
-export default nextConfig;
+  images: {
+    remotePatterns: [
+      { protocol: 'https', hostname: 'fonts.gstatic.com' },
+    ],
+  },
+
+  // Ensure webhook raw body is available
+  async headers() {
+    return [
+      {
+        source: '/api/stripe/webhook',
+        headers: [{ key: 'Cache-Control', value: 'no-store' }],
+      },
+    ]
+  },
+}
+
+export default nextConfig
